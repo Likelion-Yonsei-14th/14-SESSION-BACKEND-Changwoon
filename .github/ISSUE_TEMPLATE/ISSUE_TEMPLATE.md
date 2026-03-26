@@ -52,3 +52,4 @@ URL: /items
 ex) 
 - price는 0 이상
 - name은 null 불가
+d
