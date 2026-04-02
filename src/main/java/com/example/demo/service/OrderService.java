@@ -1,13 +1,17 @@
 package com.example.demo.service;
 
-import com.example.demo.discount.FixDiscountPolicy;
 import com.example.demo.discount.DiscountPolicy;
 import com.example.demo.member.Member;
 
 public class OrderService {
-    private DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    private final DiscountPolicy discountPolicy;
+
+    public OrderService(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy;
+    }
 
     public double createOrder(Member member, int price) {
         return price - discountPolicy.discount(member, price);
     }
+
 }
